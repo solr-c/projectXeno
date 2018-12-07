@@ -33,7 +33,7 @@ app.engine(
     extname: ".handlebars"
   })
 );
-app.set("view engine", ".handlebars");
+app.set('view engine', '.handlebars');
 
 //Routes
 var authRoute = require("./routes/auth")(app);
