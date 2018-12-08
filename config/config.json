@@ -2,20 +2,24 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "exampledb",
-    "host": "localhost",
+    "database": "ex_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
+
   "test": {
-    "username": "root",
+    "username": "",
     "password": null,
-    "database": "testdb",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
+    "database": "",
+    "host": "",
+    "dialect": "mysql"
   },
+
   "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "username": "",
+    "password": null,
+    "database": "",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
