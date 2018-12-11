@@ -1,3 +1,8 @@
+/* I put this here because I hate white backgrounds when testing -Kfizzle*/
+body {
+    background-color: lightgrey;
+}
+
 h2 {
     color: blue;
 }

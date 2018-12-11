@@ -15,17 +15,12 @@ app.use(session({ secret: "master chief",resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-//For Handlebars
-app.set('views', './views')
-app.engine(
-  "handlebars",
-  exphbs({
-    extname: ".handlebars"
-  })
-);
-app.set("view engine", ".handlebars");
+// Import routes and give the server access to them.
+var routes = require("./controllers/authcontroller");
 
+app.use(routes);
 
+var PORT = process.env.PORT || 5000;
 
 app.get('/', function (req, res) {
 
@@ -37,21 +32,21 @@ app.get('/', function (req, res) {
   var models = require("./models");
 
   //Routes
-var authRoute = require("./routes/auth.js")(app, passport);
+  var authRoute = require("./routes/auth.js")(app, passport);
 
 
   //load passport strategies
-require("./config/passport/passport")(passport, models.user);
+  require("./config/passport/passport")(passport, models.user);
 
-  //Sync Database
-  models.sequelize.sync().then(function() {
-    console.log("Nice! Database looks fine")
-  }).catch(function(err) {
-      console.log(err, "Something went wrong with the Database Update!");
-  });
+//Sync Database
+models.sequelize.sync().then(function() {
+  console.log("Nice! Database looks fine");
+}).catch(function(err) {
+  console.log(err, "Something went wrong with the Database Update!");
+});
 
 
-app.listen(5000, function(err) {
-  if (!err) console.log("Site is live");
+app.listen(PORT, function(err) {
+  if (!err) console.log("Site is live. ", "Server listening on: http://localhost:" + PORT);
   else console.log(err);
 });
