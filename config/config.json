@@ -8,17 +8,17 @@
   },
 
   "test": {
-    "username": "",
-    "password": null,
-    "database": "",
-    "host": "",
+    "username": "root",
+    "password": "password",
+    "database": "ex_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
 
   "production": {
-    "username": "",
-    "password": null,
-    "database": "",
+    "username": "root",
+    "password": "password",
+    "database": "ex_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
