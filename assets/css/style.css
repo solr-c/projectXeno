@@ -1,31 +1,56 @@
-/* I put this here because I hate white backgrounds when testing -Kfizzle*/
-body {
-    background-color: lightgrey;
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-h2 {
-    color: blue;
+/* ////////////////////// */
+/* SIGN UP & WELCOME PAGE */
+/* ////////////////////// */
+
+nav {
+    background-color: #D77A61!important;
 }
 
-.polaroid {
-    width: 250px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
+#signUpPage {
+    min-height: 100vh;
+    background-color: #223843;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.blur {
-    /* -webkit-filter: blur(10px); */
-    filter: blur(25px);
+#signUp {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
-#selectionCard {
-    margin-top: 20px !important;
+#registrationForm {
+    width: 40%;
+    margin: 10% auto;
+    font-family: 'Raleway', sans-serif;
+    background-color: #EFF1F3!important;
 }
 
-#grad {
-    background-image: linear-gradient white, yellow !important;
+.uk-margin legend {
+    font-size: 1.25em!important;
+    font-weight: 600!important;
+    margin: 0 0 5px 0!important;
 }
 
-.sidebar{
-    background-color: lightgray;
+.uk-margin button {
+    width: 100%;
+}
+
+/* ///// */
+/* OTHER */
+/* ///// */
+
+::-webkit-scrollbar {
+    display: none;
 }
