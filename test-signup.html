@@ -6,41 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Normalize & Style CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/styles/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/styles/css/normalize.css" />
     <!-- <link rel="stylesheet" href="prototype.css"> -->
-    
+
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/css/uikit.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h"
+        crossorigin="anonymous">
+
 
 </head>
 
 <body>
 
 
-    <nav class="uk-navbar-container" uk-navbar>
+<nav class="uk-navbar-container" uk-navbar>
 
-        <div class="uk-navbar-left">
+    <div id="navLeft" class="uk-navbar-left">
 
-            <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="test-index.html">Xeno</a></li>
-            </ul>
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a id="logoXeno" href="test-index.html">Xeno</a></li>
+        </ul>
 
-        </div>
+    </div>
 
-        <div class="uk-navbar-right">
+    <div id="navRight" class="uk-navbar-right">
 
-            <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="#">Login</a></li>
-                <li class="uk-active"><a href="#">Sign Up</a></li>
-            </ul>
+        <ul class="uk-navbar-nav">
+            <li class="uk-active">Have an account?</li>
+            <li class="uk-active">
+                <!-- <button href="test-signup.html">Sign Up</button> -->
+                <a href="test-signin.html"><button class="uk-button uk-button-default">Log in</button></a>
+            </li>
+        </ul>
 
-        </div>
+    </div>
 
-    </nav>
+</nav>
 
 
     <div id="signUpPage">
@@ -81,7 +89,7 @@
 
                 <div class="uk-margin">
                     <button id="submitBtn" class="uk-button uk-button-default" value="button">
-                        <a href="#">Submit</a>
+                        Submit
                     </button>
                 </div>
             </div>
@@ -98,7 +106,6 @@
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
-        <script type="text/javascript" src="assets/javascript/jquery.googlemap.js"></script>
 
 
 </body>
