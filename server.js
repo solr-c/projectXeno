@@ -15,10 +15,10 @@ app.use(session({ secret: "master chief",resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/authcontroller");
+// // Import routes and give the server access to them.
+// var routes = require("./controllers/authcontroller");
 
-app.use(routes);
+// app.use(routes);
 
 var PORT = process.env.PORT || 5000;
 

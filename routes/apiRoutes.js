@@ -13,8 +13,11 @@ module.exports = function(app) {
   app.post("/api/profiles", function(req, res) {
     console.log(req.body);
     db.Example.create({
-      userName: req.body.userName,
-      password: req.body.password
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email
     })
       .then(function(dbPost) {
         res.json(dbPost);
