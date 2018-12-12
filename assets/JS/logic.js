@@ -101,6 +101,7 @@ var API = {
           width: "250px",
         });       
 
+
         // commented out because it messes up querys need to make if elese statements to give default responeses
         var snippit = response.items[i].searchInfo.textSnippet;
         // var cleansnip = snippit.trim();
@@ -111,7 +112,6 @@ var API = {
 
         // attaches textsnippit to book div
         bookDiv.prepend(snippitPrint);    
-
 
         // attaches first base link to book info **still needs work**
         bookDiv.prepend(infolink);
@@ -248,6 +248,7 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   }
 
+
   // from blog class
   // This function figures out which post we want to delete and then calls
   // deletePost
@@ -258,7 +259,6 @@ var handleDeleteBtnClick = function() {
   //     .data("post");
   //   deletePost(currentPost.id);
   // }
-
 
   // **commented out**--not setup with db yet so unkown if this is still needed
   // API.deleteExample(idToDelete).then(function() { 
