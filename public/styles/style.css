@@ -78,16 +78,21 @@ nav {
 
 #registrationForm {
     width: 40%;
-    margin: 10%;
+    margin-right: 10%;
     font-family: 'Raleway', sans-serif;
     background-color: #EFF1F3!important;
 }
 
 #tagForm {
-    /* width: 20%; */
-    margin: auto 0;
+    width: 20%;
+    margin: 5% 0;
     padding: 25px;
-    width: 15%;
+    text-align: center;
+    font-size: 1em;
+}
+
+#tagSearch {
+    margin: 0;
 }
 
 .uk-margin #submitBtn {
