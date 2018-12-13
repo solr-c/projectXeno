@@ -6,12 +6,32 @@
     padding: 0;
 }
 
+body {
+    background-color: lightblue;
+    padding: 20px;
+    font-family: 'Raleway'
+}
+#search-content {
+    width: 75%;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+     justify-content: space-around;
+}
+.tagButton {
+    margin: 2px;
+}
+
 /* ////////////////////// */
 /* SIGN UP & WELCOME PAGE */
 /* ////////////////////// */
 
-nav {
-    background-color: #D77A61!important;
+#grad {
+    background-color: #D77A61;
+}
+
+#bar {
+    background-color: rgb(77, 108, 148);
 }
 
 .uk-navbar-nav {

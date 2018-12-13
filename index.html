@@ -9,7 +9,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+         <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 
     <title>Hello, world!</title>
@@ -18,61 +21,60 @@
 <body>
 
     <!-- Navigation  -->
-    <nav class="navbar navbar-light bg-light" id="grad">
+    <nav class="navbar navbar-dark" id="grad">
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+                <h2>Search by title</h2>
+                <input class="form-control mr-sm-2" type="text" id="titleInput" placeholder="Enter book title">
+                <button class="btn btn-outline-lite my-2 my-sm-0" id="titleSearch" type="button">Search Title</button>
+            </form>
     </nav>
     <!-- Navigation  -->
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <nav id="bar"class="col-md-2 d-none d-md-block sidebar">
                 <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <span data-feather="home"></span>
-                                Dashboard <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Products
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="users"></span>
-                                Customers
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Reports
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                Integrations
-                            </a>
-                        </li>
-                    </ul>
+
+                    <h1>Tag menu</h1>
+            
+                    <div id="tag-box">
+                        <h2>Active tags</h2>
+            
+                            <div id="active-tags">
+            
+                            
+                            </div>
+                        
+                            <br>
+                        <button id="tag-search" type="button">Search!</button>
+                    </div>
+            
+                    <br>
+            
+                    <div id="tag-form">
+                        <h2>Tag pool</h2>
+            
+                        <div id="tag-pool">
+                            
+                        </div>
+            
+                    </div>
+                    
+                    <br>
+            
+                    <form class="form-group">
+                            <input type="text" id="tagMaker" placeholder="Make a new tag!">
+                            <button id="tagGenerator" type="button">Make tag</button>
+                    </form>
                 </div>
             </nav>
-            <!-- <h2>Hello, world!</h2> -->
+
+            <div id="search-content" class="col">
+            
+            </div>
+           
             <!-- Book Carousel -->
-            <div class="card mx-auto polaroid" style="width: 18rem;" id="selectionCard">
-                <div id=" arouselExampleControls" class="carousel slide" data-ride="carousel">
+            <!-- <div class="card mx-auto polaroid" style="width: 18rem;" id="selectionCard">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100 blur" src="https://vignette.wikia.nocookie.net/mafiawars/images/8/8d/7-eleven_logo-250x250.gif.png/revision/latest?cb=20100519113307"
@@ -107,25 +109,20 @@
                         <button type="button" class="btn btn-secondary" style="background-color:bisque;color:black;">Pass</button>
                     </div>
                 </div>
-            </div>
-            <!-- Book Carousel -->
-            <!-- footer -->
-            <!-- <footer class="footer">
-            <div class="container">
-              <span class="text-muted">Place sticky footer content here.</span>
-            </div>
-          </footer> -->
-            <!-- footer -->
+            </div> -->
+           
 
 
 
 
 
+            
 
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+                <script src="assets/JS/groupsearch.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
                 crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"

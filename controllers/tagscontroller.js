@@ -18,16 +18,16 @@ var userInfo = require("../models/user");
 //   });
 // });
 
-router.get("/api/profiles/list", function(req, res) {
+router.get("/api/user/list", function(req, res) {
     userInfo.all(function(data){
     res.json(data);
   });
   
 });
 
-router.post("/api/profiles/:id/tags", function(req, res) {
+router.post("/api/user/:id/tags", function(req, res) {
     userInfo.create([
-    "tag-name"
+    "tag_name"
   ], [
     req.body.tag_name
   ], function(result) {
@@ -37,13 +37,13 @@ router.post("/api/profiles/:id/tags", function(req, res) {
   });
 });
 
-router.put("/api/profiles/:id/tags/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+router.put("/api/user/:id/tags/:id", function(req, res) {
+  var condition = "tag_id = " + req.params.tag_id;
   console.log("**controller Put new tag into profile test**");
   console.log("condition", condition);
 
   userInfo.update({
-    tag_name: req.body.tag_name
+    mytags: req.body.tag_name
     
   }, condition, function(result) {
     console.log("**controller Update tag test**");

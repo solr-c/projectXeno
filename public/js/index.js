@@ -31,7 +31,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/users",
       prettyPrint: true,
       data: JSON.stringify(response)
     });
@@ -98,6 +98,18 @@ var API = {
           width: "250px",
         });       
 
+
+        // commented out because it messes up querys need to make if elese statements to give default responeses
+        var snippit = response.items[i].searchInfo.textSnippet;
+        // var cleansnip = snippit.trim();
+        var snippitPrint = $("<p>").text(snippit);     
+        response.items[i].searchInfo.textSnippet ? 
+            snippit = response.items[i].volumeInfo.imageLinks.thumbnail : 
+            snippit = "There is no short discription for this book";     
+
+        // attaches textsnippit to book div
+        bookDiv.prepend(snippitPrint);    
+
         // attaches first base link to book info **still needs work**
         bookDiv.prepend(infolink);
 
@@ -119,7 +131,7 @@ var API = {
   // **still needs work**--not connected to db and routes not worked on yet
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/users/:id/tags/" + id,
       type: "DELETE",
       prettyPrint: true
     });
@@ -232,6 +244,18 @@ var handleDeleteBtnClick = function() {
     console.log(tagList, activeTagList);
     refreshExamples();
   }
+
+
+  // from blog class
+  // This function figures out which post we want to delete and then calls
+  // deletePost
+  // function handlePostDelete() {
+  //   var currentPost = $(this)
+  //     .parent()
+  //     .parent()
+  //     .data("post");
+  //   deletePost(currentPost.id);
+  // }
 
   // **commented out**--not setup with db yet so unkown if this is still needed
   // API.deleteExample(idToDelete).then(function() { 
