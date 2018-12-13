@@ -3,19 +3,19 @@ var exports = module.exports = {};
 
 exports.signup = function (req, res) {
 
-  res.render('signup');
+  res.sendfile('test-signup');
 
 };
 
 exports.signin = function (req, res) {
 
-  res.render('signin');
+  res.sendfile('test-signin');
 
 };
 
 exports.dashboard = function (req, res) {
 
-  res.render('dashboard');
+  res.sendfile('test-index');
 
 };
 
