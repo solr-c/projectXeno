@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* body {
+    background-color: lightblue;
+    padding: 20px;
+    font-family: 'Raleway'
+} */
+#search-content {
+    width: 75%;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+     justify-content: space-around;
+}
+.tagButton {
+    margin: 2px;
+}
+
+/* ////////////////////// */
+/* SIGN UP & WELCOME PAGE */
+/* ////////////////////// */
+
+nav {
+    background-color: #D77A61!important;
+}
+
+.uk-navbar-nav {
+    /* margin: 0 275px!important; */
+}
+
+.uk-active {
+    margin: auto;
+    color: black!important;
+    font-weight: 500;
+}
+
+#logInMainBtn {
+    margin-right: -25px;
+}
+
+#signupMainBtn button {
+    background-color: #D8B4A0!important;
+}
+
+.uk-active button {
+    margin: auto 0 auto 10px;
+    /* padding: 5px; */
+    border-radius: 5px;
+}
+
+#logoXeno {
+    font-size: 2em!important;
+    color: #D8B4A0!important;
+    font-weight: bold;
+}
+
+#signUpPage {
+    min-height: 100vh;
+    background-color: #223843;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#signUp {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#registrationForm {
+    width: 40%;
+    margin: 10%;
+    font-family: 'Raleway', sans-serif;
+    background-color: #EFF1F3!important;
+}
+
+#tagForm {
+    /* width: 20%; */
+    margin: auto 0;
+    padding: 25px;
+    width: 15%;
+}
+
+.uk-margin #submitBtn {
+    background-color: #D77A61;
+    color: white!important;
+    font-size: 0.75em!important;
+    font-weight: 600!important;}
+
+.uk-margin legend {
+    font-size: 1.25em!important;
+    font-weight: 600!important;
+    margin: 0 0 5px 0!important;
+}
+
+.uk-margin button {
+    width: 100%;
+}
+
+#thumbsUpDown button {
+    width: 49.49%!important;
+}
+
+i {
+    margin: auto;
+    font-size: 1em;
+}
+
+/* ///// */
+/* OTHER */
+/* ///// */
+
+::-webkit-scrollbar {
+    display: none;
+}
