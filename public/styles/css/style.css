@@ -12,6 +12,7 @@
 
 nav {
     background-color: #D77A61!important;
+    
 }
 
 .uk-navbar-nav {
@@ -21,6 +22,15 @@ nav {
 .uk-active {
     margin: auto;
     color: black!important;
+    font-weight: 500;
+}
+
+#logInMainBtn {
+    margin-right: -25px;
+}
+
+#signupMainBtn button {
+    background-color: #D8B4A0!important;
 }
 
 .uk-active button {
@@ -53,9 +63,16 @@ nav {
 
 #registrationForm {
     width: 40%;
-    margin: 10% auto;
+    margin: 10%;
     font-family: 'Raleway', sans-serif;
     background-color: #EFF1F3!important;
+}
+
+#tagForm {
+    /* width: 20%; */
+    margin: auto 0;
+    padding: 25px;
+    width: 15%;
 }
 
 .uk-margin #submitBtn {
