@@ -6,11 +6,11 @@
     padding: 0;
 }
 
-body {
+/* body {
     background-color: lightblue;
     padding: 20px;
     font-family: 'Raleway'
-}
+} */
 #search-content {
     width: 75%;
     float: left;
@@ -26,12 +26,8 @@ body {
 /* SIGN UP & WELCOME PAGE */
 /* ////////////////////// */
 
-#grad {
-    background-color: #D77A61;
-}
-
-#bar {
-    background-color: rgb(77, 108, 148);
+nav {
+    background-color: #D77A61!important;
 }
 
 .uk-navbar-nav {
@@ -82,16 +78,21 @@ body {
 
 #registrationForm {
     width: 40%;
-    margin: 10%;
+    margin-right: 10%;
     font-family: 'Raleway', sans-serif;
     background-color: #EFF1F3!important;
 }
 
 #tagForm {
-    /* width: 20%; */
-    margin: auto 0;
+    width: 20%;
+    margin: 5% 0;
     padding: 25px;
-    width: 15%;
+    text-align: center;
+    font-size: 1em;
+}
+
+#tagSearch {
+    margin: 0;
 }
 
 .uk-margin #submitBtn {
