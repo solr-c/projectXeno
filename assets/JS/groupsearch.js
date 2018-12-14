@@ -211,16 +211,19 @@ $("#titleSearch").on("click", function() {
   });
 
   $(document).on("click", ".subject", function(){
-
+    $("#searched").empty();
+    // $(".carousel-inner").empty();
+    $("#search-content").empty();
     let sub= $(this).attr("sub");
     console.log(sub);
 
     tagpool= activeTagList.join("+");
     console.log(tagpool);
 
-    queryUrl = "https://www.googleapis.com/books/v1/volumes?q=" + tagpool + "subject:" + sub+
+    queryUrl = "https://www.googleapis.com/books/v1/volumes?q=" + tagpool + "+" + "subject:" + sub+ "/" +
     "&filter=ebooks&orderBy=relevance&maxResults=30&langRestrict=en&key=AIzaSyCMiu9BKRYCqsMEi73bivxlnUF7Ow-oQO4";
 
+    console.log(queryUrl);
     $.ajax({
       url: queryUrl,
       method: "GET",
