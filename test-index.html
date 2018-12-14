@@ -60,61 +60,52 @@
 
     <div id="signUpPage">
 
+
         <div id="signUp" class="uk-container">
-            <div id="registrationForm" class="uk-card uk-card-default uk-card-body uk">
 
-            <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: push">
-            
-                <ul class="uk-slideshow-items">
-                    <li>
-                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                            <img src="images/photo.jpg" alt="" uk-cover>
-                        </div>
-                        <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                <h2 uk-slideshow-parallax="x: 200,0,0">Heading</h2>
-                                <p uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+            <div id="tagForm" class="uk-card uk-card-default uk-card-body uk">
+                <div class="uk-margin" id="tagBox">
+                    <form id="tag-search" class="uk-search uk-search-default form-inline">
+                        <input class="uk-search-input" id="titleInput" type="search" placeholder="Search...">
+                        <button class="uk-button uk-button-primary" id="titleSearch" type="button">Search Title</button>
+                    </form>
+                    <h3 class="uk-card-title">Subjects</h3>
+                    <nav id="bar" class="col-md-2 d-none d-md-block sidebar">
+                        <div class="sidebar-sticky">
+                            <h1>Tag menu</h1>
+                            <div id="tag-box">
+                                <h2>Active tags</h2>
+                                <div id="active-tags">
+                                </div>
+                                <br>
+                                <button id="tag-search" type="button">Search!</button>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                            <img src="images/dark.jpg" alt="" uk-cover>
-                        </div>
-                        <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                <h2 uk-slideshow-parallax="x: 200,0,0">Heading</h2>
-                                <p uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <br>
+                            <div id="tag-form">
+                                <h2>Tag pool</h2>
+                                <div id="tag-pool">
+                                </div>
                             </div>
+                            <br>
+                            <form class="form-group">
+                                <input type="text" id="tagMaker" placeholder="Make a new tag!">
+                                <button id="tagGenerator" type="button">Make tag</button>
+                            </form>
                         </div>
-                    </li>
-                    <li>
-                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                            <img src="images/light.jpg" alt="" uk-cover>
-                        </div>
-                        <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                <h2 uk-slideshow-parallax="x: 200,0,0">Heading</h2>
-                                <p uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                    uk-slideshow-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-            
-            </div>
-
-                <div class="uk-margin" id="thumbsUpDown">
-                    <button class="uk-button uk-button-primary"><i class="far fa-thumbs-up"></i></button>
-                    <button class="uk-button uk-button-danger"><i class="far fa-thumbs-down"></i></button>
+                    </nav>
                 </div>
             </div>
+            <!-- <div id="registrationForm" class="uk-card uk-card-default uk-card-body uk"> -->
+
+            <div id="search-content" class="col-md-5 center">
+
+            </div>
+
+                <!-- <div class="uk-margin" id="thumbsUpDown">
+                    <button class="uk-button uk-button-primary"><i class="far fa-thumbs-up"></i></button>
+                    <button class="uk-button uk-button-danger"><i class="far fa-thumbs-down"></i></button>
+                </div> -->
+            <!-- </div> -->
 
             <div id="tagForm" class="uk-card uk-card-default uk-card-body uk">
                 <div class="uk-margin" id="tagBox">
@@ -123,19 +114,19 @@
                         <input class="uk-search-input" type="search" placeholder="Search...">
                     </form>
 
-                    <h3 class="uk-card-title">Tags</h3>
+                    <h3 class="uk-card-title">Subjects</h3>
                     <ul class="uk-list">
-                        <li>Tragedy</li>
-                        <li>Science Fiction</li>
-                        <li>Fantasy</li>
-                        <li>Mythology</li>
-                        <li>Adventure</li>
-                        <li>Mystery</li>
-                        <li>Drama</li>
-                        <li>Romance</li>
-                        <li>Action / Adventure</li>
-                        <li>Satire</li>
-                        <li>Horror</li>
+                        <li class="subject" sub="Tragedy">Tragedy</li>
+                        <li class="subject" sub="Science Fiction">Science Fiction</li>
+                        <li class="subject" sub="Fantasy">Fantasy</li>
+                        <li class="subject" sub="Mythology">Mythology</li>
+                        <li class="subject" sub="Adventure">Adventure</li>
+                        <li class="subject" sub="Mystery">Mystery</li>
+                        <li class="subject" sub="Drama">Drama</li>
+                        <li class="subject" sub="Romance">Romance</li>
+                        <li class="subject" sub="Action / Adventure">Action / Adventure</li>
+                        <li class="subject" sub="Satire">Satire</li>
+                        <li class="subject" sub="Horror">Horror</li>
                     </ul>
                 </div>
             </div>
@@ -148,6 +139,15 @@
 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        <script src="assets/JS/groupsearch.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
 
 

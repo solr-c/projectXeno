@@ -13,7 +13,7 @@
 } */
 #search-content {
     width: 75%;
-    float: left;
+    /* float: left; */
     display: flex;
     flex-wrap: wrap;
      justify-content: space-around;
@@ -95,11 +95,13 @@ nav {
     padding: 25px;
     text-align: center;
     font-size: 1em;
+    float: left;
 }
 
-#tagSearch {
+#tag-search {
     margin: 0;
 }
+
 
 .uk-margin #submitBtn {
     background-color: #D77A61;
