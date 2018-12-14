@@ -74,7 +74,7 @@ $("#titleSearch").on("click", function() {
           snippit = response.items[i].searchInfo.textSnippet : 
           snippit = "There is no short discription for this book";    
 
-          var snippitPrint = $("<p>").text(snippit);     
+          var snippitPrint = $("<p class=snip>").text(snippit);     
           
 
             
@@ -186,7 +186,7 @@ $("#titleSearch").on("click", function() {
           snippit = response.items[i].searchInfo.textSnippet : 
           snippit = "There is no short discription for this book";    
 
-          var snippitPrint = $("<p>").text(snippit);     
+          var snippitPrint = $("<p class=snip>").text(snippit);     
           
 
             
@@ -275,7 +275,7 @@ $("#titleSearch").on("click", function() {
           snippit = response.items[i].searchInfo.textSnippet : 
           snippit = "There is no short discription for this book";    
 
-          var snippitPrint = $("<p>").text(snippit);     
+          var snippitPrint = $("<p class=snip>").text(snippit);     
           
 
             
@@ -323,6 +323,9 @@ $("#titleSearch").on("click", function() {
 
         tagDiv.append(newTagAct);
         tagDiv.append(deleteMe);
+        tagDiv.attr({
+          display: "inline-block"
+        });
        
        //put new button at the end othe other buttons
        $("#active-tags").append(tagDiv);
