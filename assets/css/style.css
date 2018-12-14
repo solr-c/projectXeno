@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: lightblue;
+    background-color: #223843;
     padding: 20px;
     font-family: 'Raleway'
 }
@@ -21,17 +21,26 @@ body {
 .tagButton {
     margin: 2px;
 }
-
+.subject {
+    font-size: 200%;
+    font-weight: bold
+}
+.snip{
+    background-color: #D8B4A0;
+}
 /* ////////////////////// */
 /* SIGN UP & WELCOME PAGE */
 /* ////////////////////// */
-
+#subjectsCol {
+    background-color: #D8B4A0;
+    width: 50%;
+}
 #grad {
     background-color: #D77A61;
 }
 
 #bar {
-    background-color: rgb(77, 108, 148);
+    background-color: #D8B4A0;
 }
 
 .uk-navbar-nav {
