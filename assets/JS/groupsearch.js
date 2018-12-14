@@ -210,6 +210,93 @@ $("#titleSearch").on("click", function() {
       });
   });
 
+  $(document).on("click", ".subject", function(){
+
+    let sub= $(this).attr("sub");
+    console.log(sub);
+
+    tagpool= activeTagList.join("+");
+    console.log(tagpool);
+
+    queryUrl = "https://www.googleapis.com/books/v1/volumes?q=" + tagpool + "subject:" + sub+
+    "&filter=ebooks&orderBy=relevance&maxResults=30&langRestrict=en&key=AIzaSyCMiu9BKRYCqsMEi73bivxlnUF7Ow-oQO4";
+
+    $.ajax({
+      url: queryUrl,
+      method: "GET",
+      prettyPrint: true
+    })
+      .then(function(response) {
+        var results = response.items.length;
+        
+        console.log(results);
+        console.log(response);
+      
+        for(let i = 0; i < results; i++){
+
+           //makes each gif a ivdividual div with the class name of book-div
+           const bookDiv = $("<div>");
+           bookDiv.attr({
+             class: "book-div",
+             // class: "carousel-item",
+             // width: "500px"
+           });
+
+
+          bookId = response.items[i].id;
+           // first base link to book info **still needs work**--only displays json data for book
+           infolink =("<button class=book-link data-link=https://www.googleapis.com/books/v1/volumes/" + bookId + 
+           "?key=AIzaSyCMiu9BKRYCqsMEi73bivxlnUF7Ow-oQO4>Book Link</button>");
+          
+          // //gets author value for result
+          // var author = response.items[i].volumeInfo.authors;
+          // //creates a p tag tied to the authors name who wrote book
+          // var authorName = $("<p class=author-names>").text("Author(s) name: " + author);
+
+          //get book cover image from json
+          response.items[i].volumeInfo.imageLinks ? 
+            bookCover = response.items[i].volumeInfo.imageLinks.thumbnail : 
+            bookCover = "assets/images/bookDefault.jpg";
+          //displays book cover on page
+          bookImage = $("<img src='" + bookCover + "'>");
+
+          //setting attributes for size and lableing for each image
+          bookImage.attr({
+            class: "book-info",
+            height: "300px",
+            width: "250px",
+          });       
+
+          
+          response.items[i].searchInfo ? 
+          snippit = response.items[i].searchInfo.textSnippet : 
+          snippit = "There is no short discription for this book";    
+
+          var snippitPrint = $("<p>").text(snippit);     
+          
+
+            
+          // attaches textsnippit to book div
+          bookDiv.prepend(snippitPrint);  
+
+          // attaches first base link to book info **still needs work**
+          bookDiv.prepend(infolink);
+          // bookDiv.prepend(newLink);
+
+          //displays a still of the book cover
+          bookDiv.prepend(bookImage);
+          //attaches author name to the end of the div
+          // bookDiv.prepend(authorName);
+          
+          // attaches all pulled info into a content pool div
+          $("#search-content").append(bookDiv);
+          // $(".carousel-inner").append(bookDiv);
+          
+        }
+      });
+  
+  });
+
   function renderButtons() {
 
     // empty current tag buttons to prevent repetes

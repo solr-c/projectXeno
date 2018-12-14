@@ -21,6 +21,12 @@
 .tagButton {
     margin: 2px;
 }
+/* General wrapper for aligning content to the horozontal center */
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* ////////////////////// */
 /* SIGN UP & WELCOME PAGE */
