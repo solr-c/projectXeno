@@ -16,13 +16,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 
-// // Import routes and give the server access to them.
-// var routes = require("./controllers/authcontroller");
-
-// app.use(routes);
-
 // Import routes and give the server access to them.
 var routes = require("./controllers/authcontroller");
+    routes = require("./controllers/userscontroller");
+    routes = require("./controllers/bookscontroller");
+    routes = require("./controllers/tagscontroller");
 
 app.use(routes);
 
@@ -38,8 +36,9 @@ app.get('/', function (req, res) {
   var models = require("./models");
 
   //Routes
-  var authRoute = require("./routes/auth.js")(app, passport);
-
+  var authRoute = require("./routes/auth")(app, passport);
+  var apiRoute = require("./routes/apiRoutes")(app);
+  var htmlRoute = require("./routes/htmlRoutes")(app);
 
   //load passport strategies
   require("./config/passport/passport")(passport, models.user);
