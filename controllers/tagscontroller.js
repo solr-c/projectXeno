@@ -18,7 +18,7 @@ var userInfo = require("../models/user");
 //   });
 // });
 
-router.get("/api/user/list", function(req, res) {
+router.get("/api/user/:id/tags", function(req, res) {
     userInfo.all(function(data){
     res.json(data);
   });

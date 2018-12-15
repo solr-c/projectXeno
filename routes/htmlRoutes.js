@@ -4,7 +4,7 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      res.render("signup.html", {
+      res.render("index.html", {
         msg: "Welcome!",
         examples: dbExamples
       });
@@ -14,6 +14,24 @@ module.exports = function(app) {
   // Load example page and pass in an example by id
   app.get("/profiles/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.render("index.html", {
+        example: dbExample
+      });
+    });
+  });
+
+   // Load example page and pass in an example by id
+   app.get("/profiles/:id/tags", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.tags} }).then(function(dbExample) {
+      res.render("index.html", {
+        example: dbExample
+      });
+    });
+  });
+
+  // Load example page and pass in an example by id
+  app.get("/profiles/:id/books", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.books} }).then(function(dbExample) {
       res.render("index.html", {
         example: dbExample
       });

@@ -27,9 +27,10 @@ router.get("/api/user/:id/books", function(req, res) {
 
 router.post("/api/user/:id/books", function(req, res) {
     userInfo.create([
-    "tag_name"
+    "book_name",
+    "book_apiId"
   ], [
-    req.body.tag_name
+    req.body.book_name
   ], function(result) {
     console.log("**controller book Post test**");
     // Send back the ID of the new quote
@@ -38,12 +39,12 @@ router.post("/api/user/:id/books", function(req, res) {
 });
 
 router.put("/api/user/:id/books/:id", function(req, res) {
-  var condition = "tag_id = " + req.params.tag_id;
-  console.log("**controller Put new tag into profile test**");
+  var condition = "book_index = " + req.params.book_index;
+  console.log("**controller Put new book into profile test**");
   console.log("condition", condition);
 
   userInfo.update({
-    mytags: req.body.tag_name
+    mytags: req.body.book_name
     
   }, condition, function(result) {
     console.log("**controller book Update tag test**");
@@ -58,7 +59,7 @@ router.put("/api/user/:id/books/:id", function(req, res) {
 });
 
 router.delete("/api/profiles/:id/books/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+  var condition = "id = " + req.params.book_index;
   console.log("**controller book Delete test**");
   userInfo.delete(condition, function(result) {
     if (result.affectedRows == 0) {

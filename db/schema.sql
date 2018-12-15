@@ -26,9 +26,9 @@ CREATE TABLE user (
 	lastname VARCHAR(100) NULL,
 	username VARCHAR(100) NULL,
 	email VARCHAR(100) NULL,
+	password VARCHAR(100) NULL,
 	mybooks VARCHAR(100),
 	mytags VARCHAR(100),
-    password VARCHAR(100) NULL,
 	PRIMARY KEY(id)
 	FOREIGN KEY(mybooks) REFERENCES books(book_index),
 	FOREIGN KEY (mytags) REFERENCES tags(tag_id)
