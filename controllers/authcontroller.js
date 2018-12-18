@@ -3,19 +3,19 @@ var exports = module.exports = {};
 
 exports.signup = function (req, res) {
 
-  res.sendfile('test-signup');
+  res.sendFile("test-signup.html", { root: __dirname});
 
 };
 
 exports.signin = function (req, res) {
 
-  res.sendfile('test-signin');
+  res.sendFile("test-signin.html", { root: __dirname});
 
 };
 
 exports.dashboard = function (req, res) {
 
-  res.sendfile('test-index');
+  res.sendFile("index.html", { root: __dirname});
 
 };
 

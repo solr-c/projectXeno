@@ -26,7 +26,7 @@ module.exports = function(api) {
   });
 
   // create a new tag
-  api.post("/api/user/tags", function(req, res) {
+  api.post("/api/tags", function(req, res) {
     console.log(req.body);
     db.Example.create({
       tagName: req.body.tagName
