@@ -1,27 +1,29 @@
 var db = require("../models");
 
-module.exports = function(page) {
+module.exports = function(app) {
   // Load index page
-  page.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("test-signup.html", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
+  var db = require("../models");
 
-  // Load example page and pass in an example by id
-  page.get("/user/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("index.html", {
-        example: dbExample
-      });
-    });
-  });
+// get the signup html page
+app.get('/', function (req, res) {
 
-  // Render 404 page for any unmatched routes
-  page.get("*", function(req, res) {
-    res.render("404");
-  });
+  res.sendFile("test-signup.html", { root: __dirname});
+
+});
+// get the signin html page
+app.get("/signIn", function (req,res) {
+
+  res.sendFile("test-signin.html", { root: __dirname});
+});
+// get the search html page
+app.get("/apiPage", function (req, res) {
+
+  res.sendFile("index.html", { root: __dirname});
+
+});
+// Render 404 page for any unmatched routes
+app.get("*", function(req, res) {
+  res.send("You have hit an error!!");
+});
+
 };
