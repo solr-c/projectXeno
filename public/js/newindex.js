@@ -9,7 +9,7 @@ $(document).on("click", "#tagGenerator", function(){
         tag_name: inputTag
     })
       .then(function(response){
-          console.log(response);
+        //   console.log(response);
           console.log("You made a new tag " + inputTag);
       });
 });

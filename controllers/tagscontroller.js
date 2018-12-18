@@ -21,6 +21,7 @@ var userInfo = require("../models/index");
 router.get("/api/tags/list", function(req, res) {
   userInfo.all(function(data){
   res.json(data);
+  console.log("**controller tag list test**");
 });
 
 });
@@ -28,6 +29,7 @@ router.get("/api/tags/list", function(req, res) {
 router.get("/api/user/:id/tags/list", function(req, res) {
     userInfo.all(function(data){
     res.json(data);
+    console.log("**controller user tag list test**");
   });
   
 });
@@ -56,14 +58,14 @@ router.post("/api/user/:id/tags", function(req, res) {
   });
 });
 
-router.put("/api/user/:id/tags/:id", function(req, res) {
+router.put("/api/tags/:tag_id", function(req, res) {
   var condition = "tag_id = " + req.params.tag_id;
   console.log("**controller Put new tag into profile test**");
   console.log("condition", condition);
 
   userInfo.update({
-    mytags: req.body.tag_name
-    
+    active_search: req.body.active_search,
+
   }, condition, function(result) {
     console.log("**controller Update tag name test**");
     if (result.changedRows == 0) {
@@ -89,7 +91,7 @@ router.delete("/api/tags/:tag_id", function(req, res) {
   });
 });
 
-router.delete("/api/users/:id/tags/:tag_id", function(req, res) {
+router.delete("/api/user/:id/tags/:tag_id", function(req, res) {
   var condition = "tag_id = " + req.params.tag_id;
   console.log("**controller tag Delete test**");
   userInfo.delete(condition, function(result) {
