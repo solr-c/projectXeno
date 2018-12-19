@@ -56,26 +56,27 @@ router.post("/api/user/:id/books", function(req, res) {
   });
 });
 
-router.put("/api/books/:id", function(req, res) {
-  var condition = "book_index = " + req.params.book_index;
-  console.log("**controller Put new tag into profile test**");
-  console.log("condition", condition);
+// this is not needed since we only create and delete books in table no need for updates
+// router.put("/api/books/:book_index", function(req, res) {
+//   var condition = "book_index = " + req.params.book_index;
+//   console.log("**controller Put new tag into profile test**");
+//   console.log("condition", condition);
 
-  userInfo.update({
-    book_name: req.body.book_name,
-    book_apiId: req.body.book_apiId
+//   userInfo.update({
+//     book_name: req.body.book_name,
+//     book_apiId: req.body.book_apiId
     
-  }, condition, function(result) {
-    console.log("**controller book Update tag test**");
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      console.log("error with db");
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
+//   }, condition, function(result) {
+//     console.log("**controller book Update tag test**");
+//     if (result.changedRows == 0) {
+//       // If no rows were changed, then the ID must not exist, so 404
+//       console.log("error with db");
+//       return res.status(404).end();
+//     } else {
+//       res.status(200).end();
+//     }
+//   });
+// });
 
 router.put("/api/user/:id/books/:book_index", function(req, res) {
   var condition = "book_index = " + req.params.book_index;
