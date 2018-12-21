@@ -20,10 +20,6 @@ var User = sequelize.define("user", {
         type: Sequelize.TEXT
     },
 
-    about: {
-        type: Sequelize.TEXT
-    },
-
     email: {
         type: Sequelize.STRING,
         validate: {

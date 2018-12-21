@@ -1,24 +1,24 @@
 var db = require("../models");
+var path = require("path");
 
 module.exports = function(app) {
-  // Load index page
-  var db = require("../models");
+ 
 
 // get the signup html page
 app.get('/', function (req, res) {
 
-  res.sendFile("test-signup.html", { root: __dirname});
+  res.sendFile(path.join(__dirname, "../public/test-signup.html"));
 
 });
 // get the signin html page
 app.get("/signIn", function (req,res) {
 
-  res.sendFile("test-signin.html", { root: __dirname});
+  res.sendFile(path.join(__dirname, "../public/test-signin.html"));
 });
 // get the search html page
 app.get("/apiPage", function (req, res) {
 
-  res.sendFile("index.html", { root: __dirname});
+  res.sendFile(path.join(__dirname, "../public/main.html"));
 
 });
 // Render 404 page for any unmatched routes

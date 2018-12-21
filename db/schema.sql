@@ -1,4 +1,4 @@
-booDROP DATABASE IF EXISTS ex_db;
+DROP DATABASE IF EXISTS ex_db;
 CREATE DATABASE ex_db;
 
 USE ex_db;
@@ -30,6 +30,6 @@ CREATE TABLE user (
 	mytags VARCHAR(100),
     password VARCHAR(100) NULL,
 	PRIMARY KEY(id)
-	FOREIGN KEY(mybooks) REFERENCES books(book_index),
-	FOREIGN KEY (mytags) REFERENCES tags(tag_id)
+	-- FOREIGN KEY(mybooks) REFERENCES books(book_index),
+	-- FOREIGN KEY (mytags) REFERENCES tags(tag_id)
 );

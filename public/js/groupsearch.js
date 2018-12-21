@@ -37,7 +37,7 @@ $("#titleSearch").on("click", function() {
 
           var saveBookIcon = $("<img>");
             saveBookIcon.attr({
-              src: "assets/images/save-book.png",
+              src: "images/save-book.png",
               width: "55px",
               height: "40px"
             });
@@ -60,7 +60,7 @@ $("#titleSearch").on("click", function() {
           //get book cover inmage from json
           response.items[i].volumeInfo.imageLinks ? 
             bookCover = response.items[i].volumeInfo.imageLinks.thumbnail : 
-            bookCover = "assets/images/bookDefault.jpg";
+            bookCover = "images/bookDefault.jpg";
           //displays book cover on page
           var bookImage = $("<img src='" + bookCover + "'>");
           //setting attributes for size and lableing for each image
@@ -313,7 +313,7 @@ $("#titleSearch").on("click", function() {
       var deleteMe = $("<img active=true tag=" + tagList[i] + ">");
         deleteMe.attr({
           class: "delIcon",
-          src: "assets/images/deleteMe.jpg",
+          src: "images/deleteMe.jpg",
           height: "15px",
           width: "15px",
           margin: "2px"
@@ -344,7 +344,7 @@ $("#titleSearch").on("click", function() {
       var deleteMeAgain = $("<img active=false tag=" + tagList[i] + ">");
         deleteMeAgain.attr({
           class: "delIcon",
-          src: "assets/images/deleteMe.jpg",
+          src: "images/deleteMe.jpg",
           height: "15px",
           width: "15px",
           margin: "2px",
@@ -418,7 +418,7 @@ $("#titleSearch").on("click", function() {
           //get book cover image from json
           response.volumeInfo.imageLinks ? 
             bookCover = response.volumeInfo.imageLinks.thumbnail : 
-            bookCover = "assets/images/bookDefault.jpg";
+            bookCover = "images/bookDefault.jpg";
           //displays book cover on page
           var bookImage = $("<img src='" + bookCover + "'>");
 
