@@ -1,25 +1,3 @@
-
-$(document).on("click", "#tagGenerator", function(){
-
-    var inputTag = $("#tagMaker").val().trim();
-
-    console.log("You made a new tag on the html side..   " + inputTag);
-    $.ajax({
-        url: "api/tags",
-        method: "POST",
-        data: {tag_name: inputTag} //looks good so far in console log
-        // contentType : "application/json",
-        // data : JSON.stringify(inputTag)
-    })
-      .then(function(err, response){
-          if(err) throw err;
-          else
-          console.log(response);
-          console.log("You made a new tag " + inputTag);
-      });
-});
-
-// working user posting to db
 $(document).on("click", "#submitBtn", function(){
 
     var Username = $("#regisUserName-input").val().trim();

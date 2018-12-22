@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS ex_db;
-CREATE DATABASE ex_db;
+-- DROP DATABASE IF EXISTS ex_db;
+-- CREATE DATABASE ex_db;
 
 USE ex_db;
 
