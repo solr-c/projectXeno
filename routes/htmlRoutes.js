@@ -18,7 +18,7 @@ app.get("/signIn", function (req,res) {
 // get the search html page
 app.get("/apiPage", function (req, res) {
 
-  res.sendFile(path.join(__dirname, "../public/searchpage.html"));
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 
 });
 // Render 404 page for any unmatched routes

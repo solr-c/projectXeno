@@ -5,20 +5,7 @@ var router = express.Router();
 // Import the model (cat.js) to use its database functions.
 var userInfo = require("../models/index");
 
-// Create all our routes and set up logic within those routes where required.
-// router.get("/", function(req, res) {
-//     userInfo.all(function(data) {
-//     // Check to see intital data is good
-//     // console.log(data);
-//     var hbsObject = {
-//       burgers: data
-//     };
-//     console.log(hbsObject);
-//     res.render("index", hbsObject);
-//   });
-// });
-
-router.get("/api/tags/list", function(req, res) {
+router.get("/api/tags", function(req, res) {
   userInfo.all(function(data){
   res.json(data);
   console.log("**controller tag list test**");
@@ -26,7 +13,7 @@ router.get("/api/tags/list", function(req, res) {
 
 });
 
-router.get("/api/user/:id/tags/list", function(req, res) {
+router.get("/api/user/:id/tags", function(req, res) {
     userInfo.all(function(data){
     res.json(data);
     console.log("**controller user tag list test**");

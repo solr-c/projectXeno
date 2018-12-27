@@ -1,57 +1,69 @@
-module.exports = function(sequelize, Sequelize) {
+module.exports = function(sequelize, DataTypes) {
 var User = sequelize.define("User", {
     id: {
-        autoIncrement: true,
+        type: DataTypes.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true
     },
 
     firstname: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         notEmpty: true
     },
 
     lastname: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         notEmpty: true
     },
 
     username: {
-        type: Sequelize.TEXT
+        type: DataTypes.TEXT
     },
 
     email: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         validate: {
         isEmail: true
         }
     },
 
     password: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
 
     last_login: {
-        type: Sequelize.DATE
+        type: DataTypes.DATE
+    },
+    
+    mybooks: {
+        type: DataTypes.STRING
     },
 
+    mytags: {
+        type: DataTypes.STRING
+    },
+
+
+
     status: {
-    type: Sequelize.ENUM("active", "inactive"),
+    type: DataTypes.ENUM("active", "inactive"),
     defaultValue: "active"
     }
 });
 
-    // User.associate = function(models){
+    User.associate = function(models){
 
-    //     User.hasMany(models.Tag, {
-    //         onDelete: "cascade"
-    //     });
 
-    //     // User.hasMany(models.Book, {
-    //     //     onDelete: "cascade"
-    //     // });
-    // };
+
+        User.hasMany(models.Tag, {
+            onDelete: "cascade"
+        });
+
+        User.hasMany(models.Book, {
+            onDelete: "cascade"
+        });
+    };
 
     return User;
 };

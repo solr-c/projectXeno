@@ -1,38 +1,34 @@
-module.exports = function(sequelize, Sequelize) {
-    var Tag = sequelize.define("tags", {
+module.exports = function(sequelize, DataTypes) {
+    var Tag = sequelize.define("Tag", {
+
         tag_id: {
+            type: DataTypes.INTEGER,
             autoIncrement: true,
-            primaryKey: true,
-            type: Sequelize.INTEGER
+            primaryKey: true
+            
         },
     
-        tag_name: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
-    
+        tag_name: DataTypes.STRING,
+            
         active_search: {
-            type: Sequelize.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: false,
-            notEmpty: true
         },
 
-    
-        status: {
-        type: Sequelize.ENUM("active", "inactive"),
-        defaultValue: "active"
-        }
-    });
+        // timestamps: false
+       
+    }, {
 
-    Tag.associate = function(models) {
-        // We're saying that a Post should belong to an Author
-        // A Post can't be created without an Author due to the foreign key constraint
-        Tag.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
-    
-        return Tag;
-    };
+        timestamps: false,
+            classMethods: {
+                associate: function(modules){
+                    Tag.belongsTo(modules.User);
+                }
+            }
+        // status: {
+        // type: DataTypes.ENUM("active", "inactive"),
+        // defaultValue: "active"
+        // }
+    });
+    return Tag;
+};

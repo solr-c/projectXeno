@@ -37,9 +37,16 @@ $("#titleSearch").on("click", function() {
 
           var saveBookIcon = $("<img>");
             saveBookIcon.attr({
+              class: "saveBook",
               src: "images/save-book.png",
               width: "55px",
-              height: "40px"
+              height: "40px",
+              book_name: response.items[i].volumeInfo.title,
+              book_id: response.items[i].id
+              // data: {
+              //   name: response.items[i].volumeInfo.title,
+              //   id: response.items[i].id
+              // }
             });
         
           // first base link to book info **still needs work**--only displays json data for book
@@ -85,7 +92,7 @@ $("#titleSearch").on("click", function() {
           bookDiv.prepend(infolink);
 
           // ave book to personal db icon
-          bookDiv.append(saveBookIcon);
+          bookDiv.prepend(saveBookIcon);
 
           //displays a still of the book cover
           bookDiv.prepend(bookImage);
@@ -113,6 +120,8 @@ $("#titleSearch").on("click", function() {
   });
 
 
+
+
   // takes in all users selected tags and puts them into query
   var tagList = ["money", "power"];
   console.log(tagList);
@@ -121,6 +130,9 @@ $("#titleSearch").on("click", function() {
 
   console.log("inactive:  " + tagList);
   console.log("active:  " + activeTagList);
+
+
+
 ///////////// Tag search funtion 
   $("#tag-search").on("click", function(){
     console.log($(this));
@@ -155,6 +167,20 @@ $("#titleSearch").on("click", function() {
              // class: "carousel-item",
              // width: "500px"
            });
+
+           var saveBookIcon = $("<img>");
+            saveBookIcon.attr({
+              class: "saveBook",
+              src: "images/save-book.png",
+              width: "55px",
+              height: "40px",
+              book_name: response.items[i].volumeInfo.title,
+              book_id: response.items[i].id
+              // data: {
+              //   name: response.items[i].volumeInfo.title,
+              //   id: response.items[i].id
+              // }
+            });
 
 
           bookId = response.items[i].id;
@@ -196,6 +222,8 @@ $("#titleSearch").on("click", function() {
           // attaches first base link to book info **still needs work**
           bookDiv.prepend(infolink);
           // bookDiv.prepend(newLink);
+
+          bookDiv.prepend(saveBookIcon);
 
           //displays a still of the book cover
           bookDiv.prepend(bookImage);
@@ -256,6 +284,20 @@ $("#titleSearch").on("click", function() {
           // //creates a p tag tied to the authors name who wrote book
           // var authorName = $("<p class=author-names>").text("Author(s) name: " + author);
 
+          var saveBookIcon = $("<img>");
+            saveBookIcon.attr({
+              class: "saveBook",
+              src: "images/save-book.png",
+              width: "55px",
+              height: "40px",
+              book_name: response.items[i].volumeInfo.title,
+              book_id: response.items[i].id
+              // data: {
+              //   name: response.items[i].volumeInfo.title,
+              //   id: response.items[i].id
+              // }
+            });
+
           //get book cover image from json
           response.items[i].volumeInfo.imageLinks ? 
             bookCover = response.items[i].volumeInfo.imageLinks.thumbnail : 
@@ -286,8 +328,11 @@ $("#titleSearch").on("click", function() {
           bookDiv.prepend(infolink);
           // bookDiv.prepend(newLink);
 
+          bookDiv.prepend(saveBookIcon);
+
           //displays a still of the book cover
           bookDiv.prepend(bookImage);
+
           //attaches author name to the end of the div
           // bookDiv.prepend(authorName);
           
@@ -380,6 +425,7 @@ $("#titleSearch").on("click", function() {
     }
   });
     
+  ////////////// special book info link ////////////////////
   $(document).on("click", ".book-link", function(){
 
     $("#search-content").empty();
@@ -415,22 +461,41 @@ $("#titleSearch").on("click", function() {
 
           var descript = $("<p>" + response.volumeInfo.description + "</p>");
           bookDiv.append(descript);
+
           //get book cover image from json
           response.volumeInfo.imageLinks ? 
             bookCover = response.volumeInfo.imageLinks.thumbnail : 
             bookCover = "images/bookDefault.jpg";
+
           //displays book cover on page
           var bookImage = $("<img src='" + bookCover + "'>");
 
           // //gets author value for result
-          // var author = response.volumeInfo.authors;
+          var author = response.volumeInfo.authors;
+
+          var saveBookIcon = $("<img>");
+            saveBookIcon.attr({
+              class: "saveBook",
+              src: "images/save-book.png",
+              width: "55px",
+              height: "40px",
+              book_name: response.items[i].volumeInfo.title,
+              book_id: response.items[i].id
+              // data: {
+              //   name: response.volumeInfo.title,
+              //   id: response.id
+              // }
+            });
 
           // //creates a p tag tied to the authors name who wrote book
-          // var authorName = $("<p class=author-names>").text("Author(s) name: " + author);
+          var authorName = $("<p class=author-names>").text("Author(s) name: " + author);
 
           bookDiv.prepend(bookImage);
+
+          bookDiv.prepend(saveBookIcon);
+
           //attaches author name to the end of the div
-          // bookDiv.prepend(authorName);
+          bookDiv.prepend(authorName);
           
           // attaches all pulled info into a content pool div
           $("#search-content").append(bookDiv);

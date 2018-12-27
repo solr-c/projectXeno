@@ -1,37 +1,28 @@
-module.exports = function(sequelize, Sequelize) {
-    var Book = sequelize.define("books", {
+module.exports = function(sequelize, DataTypes) {
+    var Book = sequelize.define("Book", {
+        
         book_index: {
             autoIncrement: true,
             primaryKey: true,
-            type: Sequelize.INTEGER
+            type: DataTypes.INTEGER
         },
     
         book_name: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             notEmpty: true
         },
     
-        book_apiId: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
+        book_apiId: DataTypes.STRING,
 
-    
-        status: {
-        type: Sequelize.ENUM("active", "inactive"),
-        defaultValue: "active"
+        // timestamps: false
+          
+    }, {
+        timestamps: false,
+        classMethods: {
+            associate: function(models) {
+                Book.belongsTo(models.User);
+            }
         }
     });
-
-    Book.associate = function(models) {
-        // We're saying that a Post should belong to an Author
-        // A Post can't be created without an Author due to the foreign key constraint
-        Book.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
-    
-        return Book;
-    };
+    return Book;
+};

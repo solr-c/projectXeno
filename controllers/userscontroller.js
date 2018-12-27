@@ -6,7 +6,7 @@ var router = express.Router();
 // Import the model (cat.js) to use its database functions.
 var userInfo = require("../models/index");
 
-router.get("/api/users/list", function(req, res) {
+router.get("/api/users", function(req, res) {
     userInfo.all(function(data){
     res.json(data);
   });

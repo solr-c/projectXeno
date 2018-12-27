@@ -3,6 +3,15 @@ var db = require("../models");
 module.exports = function(api) {
 
   console.log("This export (api) requires ../models");
+
+  // Get all tags associated with profile **still needs work**--only attached our db name into function
+  api.get("/api/user", function(req, res) {
+    console.log("**routes apiRoutes user GET test**");
+    db.User.findAll({})
+      .then(function(dbPost) {
+       res.json(dbPost);
+      });
+  });
   
   // Get all tags associated with profile **still needs work**--only attached our db name into function
   api.get("/api/tags", function(req, res) {
@@ -40,7 +49,7 @@ module.exports = function(api) {
       });
   });
 
-  // Create a new profile **still needs work**--only attached our db name into function
+  // Create a new profile 
   api.post("/api/user", function(req, res) {
     console.log(req.body);
     console.log("**routes apiRoutes user POST test**");
@@ -74,7 +83,8 @@ module.exports = function(api) {
     console.log(req.body);
     console.log("**controller apiRoutes user tag POST test**");
     db.User.create({
-      tag_name: req.body.tag_name
+      id: req.body.id,
+      mytags: req.body.tag_name
     })
       .then(function(dbPost) {
         res.json(dbPost);
@@ -99,7 +109,8 @@ module.exports = function(api) {
     console.log(req.body);
     console.log("**controller apiRoutes user tag POST test**");
     db.User.create({
-      book_index: req.body.book_index
+      id: req.body.id,
+      mybooks: req.body.book_index
     })
       .then(function(dbPost) {
         res.json(dbPost);
@@ -125,7 +136,7 @@ module.exports = function(api) {
     db.User.destroy({ 
       where: { 
         id: req.params.id,
-        tag_id: req.body.tag_id 
+        mytags: req.body.tag_id 
       } 
     })
       .then(function(dbPost) {
@@ -139,7 +150,7 @@ module.exports = function(api) {
     db.User.destroy({ 
       where: { 
         id: req.params.id,
-        bookId: req.body.book_index 
+        mybooks: req.body.book_index 
       } 
     })
       .then(function(dbPost) {
@@ -152,8 +163,7 @@ module.exports = function(api) {
     console.log("**controller apiRoutes book DELETE test**");
     db.Book.destroy({ 
       where: { 
-        id: req.params.id,
-        bookId: req.body.book_index 
+        book_index: req.body.book_index 
       } 
     })
       .then(function(dbPost) {
@@ -161,12 +171,11 @@ module.exports = function(api) {
     });
   });
 
-   // Delete an users book by id **still needs work**
-  api.delete("/api/tags/:tag_id/", function(req, res) {
+   // Delete an users tag by id **still needs work**
+  api.delete("/api/tags/:tag_id", function(req, res) {
     console.log("**controller apiRoutes tag DELETE test**");
     db.Book.destroy({ 
       where: { 
-        id: req.params.id,
         bookId: req.body.book_index 
       } 
     })
