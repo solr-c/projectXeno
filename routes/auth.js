@@ -9,8 +9,8 @@ module.exports = function (app, passport) {
 
 
   app.post('/', passport.authenticate('local-signup', {
-    successRedirect: '/index.html',
-    failureRedirect: '/test-signup.html'
+    successRedirect: '/apiPage',
+    failureRedirect: '/'
   }
   ));
 
@@ -19,12 +19,12 @@ module.exports = function (app, passport) {
 
 
   //no file for this
-  app.get('/logout', authController.logout);
+  // app.get('/logout', authController.logout);
 
 
   app.post('/signIn', passport.authenticate('local-signin', {
-    successRedirect: '/index.html',
-    failureRedirect: '/test-signin.html'
+    successRedirect: '/apiPage',
+    failureRedirect: '/'
   }
   ));
 

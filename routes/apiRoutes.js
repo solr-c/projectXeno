@@ -1,11 +1,22 @@
 var db = require("../models");
 
 module.exports = function(api) {
+
+  console.log("This export (api) requires ../models");
+
+  // Get all tags associated with profile **still needs work**--only attached our db name into function
+  api.get("/api/user", function(req, res) {
+    console.log("**routes apiRoutes user GET test**");
+    db.User.findAll({})
+      .then(function(dbPost) {
+       res.json(dbPost);
+      });
+  });
   
   // Get all tags associated with profile **still needs work**--only attached our db name into function
   api.get("/api/tags", function(req, res) {
-    console.log("**controller apiRoutes tags GET test**");
-    db.Example.findAll({})
+    console.log("**routes apiRoutes tags GET test**");
+    db.Tag.findAll({})
       .then(function(dbPost) {
        res.json(dbPost);
       });
@@ -13,8 +24,8 @@ module.exports = function(api) {
 
   // Get all tags associated with profile **still needs work**--only attached our db name into function
   api.get("/api/books", function(req, res) {
-    console.log("**controller apiRoutes books GET test**");
-    db.Example.findAll({})
+    console.log("**routes apiRoutes books GET test**");
+    db.Book.findAll({})
       .then(function(dbPost) {
        res.json(dbPost);
       });
@@ -22,27 +33,27 @@ module.exports = function(api) {
 
   // Get all tags associated with profile **still needs work**--only attached our db name into function
   api.get("/api/user/:id/tags", function(req, res) {
-    console.log("**controller apiRoutes user tags GET test**");
-    db.Example.findAll({})
+    console.log("**routes apiRoutes user tags GET test**");
+    db.User.findAll({mytags:1})
       .then(function(dbPost) {
        res.json(dbPost);
       });
   });
 
-   // Get all tags associated with profile **still needs work**--only attached our db name into function
+   // Get all books associated with profile **still needs work**--only attached our db name into function
    api.get("/api/user/:id/books", function(req, res) {
-    console.log("**controller apiRoutes user books GET test**");
-    db.Example.findAll({})
+    console.log("**routes apiRoutes user books GET test**");
+    db.User.findAll({mybooks:1})
       .then(function(dbPost) {
        res.json(dbPost);
       });
   });
 
-  // Create a new proifile **still needs work**--only attached our db name into function
+  // Create a new profile 
   api.post("/api/user", function(req, res) {
     console.log(req.body);
-    console.log("**controller apiRoutes user POST test**");
-    db.Example.create({
+    console.log("**routes apiRoutes user POST test**");
+    db.User.create({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       username: req.body.username,
@@ -57,11 +68,12 @@ module.exports = function(api) {
   // create a new tag **still needs work**
   api.post("/api/tags", function(req, res) {
     console.log(req.body);
-    console.log("**controller apiRoutes tag POST test**");
-    db.Example.create({
-      tagName: req.body.tagName
+    console.log("**routes apiRoutes tag POST test**");
+    db.Tag.create({
+      tag_name: req.body.tag_name
     })
       .then(function(dbPost) {
+        console.log("**routes apiRoutes tags dbPost POST test**");
         res.json(dbPost);
       });
   });
@@ -70,8 +82,9 @@ module.exports = function(api) {
   api.post("/api/user/:id/tags/:tag_id", function(req, res) {
     console.log(req.body);
     console.log("**controller apiRoutes user tag POST test**");
-    db.Example.create({
-      tagName: req.body.tagName
+    db.User.create({
+      id: req.body.id,
+      mytags: req.body.tag_name
     })
       .then(function(dbPost) {
         res.json(dbPost);
@@ -82,7 +95,7 @@ module.exports = function(api) {
   api.post("/api/books", function(req, res) {
     console.log(req.body);
     console.log("**controller apiRoutes book POST test**");
-    db.Example.create({
+    db.Book.create({
       book_name: req.body.book_name,
       book_apiId: req.body.book_apiId
     })
@@ -95,8 +108,9 @@ module.exports = function(api) {
   api.post("/api/user/:id/books/:book_index", function(req, res) {
     console.log(req.body);
     console.log("**controller apiRoutes user tag POST test**");
-    db.Example.create({
-      book_index: req.body.book_index
+    db.User.create({
+      id: req.body.id,
+      mybooks: req.body.book_index
     })
       .then(function(dbPost) {
         res.json(dbPost);
@@ -106,7 +120,7 @@ module.exports = function(api) {
   // Delete an tag by id **still needs work**
   api.delete("/api/user/:id", function(req, res) {
     console.log("**controller apiRoutes user tag DELETE test**");
-    db.Example.destroy({ 
+    db.User.destroy({ 
       where: { 
         id: req.params.id 
       } 
@@ -119,10 +133,10 @@ module.exports = function(api) {
   // Delete an users tag by id **still needs work**
   api.delete("/api/user/:id/tags/:tag_id", function(req, res) {
     console.log("**controller apiRoutes user tag DELETE test**");
-    db.Example.destroy({ 
+    db.User.destroy({ 
       where: { 
         id: req.params.id,
-        tag_id: req.body.tag_id 
+        mytags: req.body.tag_id 
       } 
     })
       .then(function(dbPost) {
@@ -133,10 +147,10 @@ module.exports = function(api) {
   // Delete an users book by id **still needs work**
   api.delete("/api/user/:id/books/:bookId", function(req, res) {
     console.log("**controller apiRoutes user book DELETE test**");
-    db.Example.destroy({ 
+    db.User.destroy({ 
       where: { 
         id: req.params.id,
-        bookId: req.body.book_index 
+        mybooks: req.body.book_index 
       } 
     })
       .then(function(dbPost) {
@@ -147,10 +161,9 @@ module.exports = function(api) {
   // Delete a book by id **still needs work**
   api.delete("/api/books/:bookId", function(req, res) {
     console.log("**controller apiRoutes book DELETE test**");
-    db.Example.destroy({ 
+    db.Book.destroy({ 
       where: { 
-        id: req.params.id,
-        bookId: req.body.book_index 
+        book_index: req.body.book_index 
       } 
     })
       .then(function(dbPost) {
@@ -158,12 +171,11 @@ module.exports = function(api) {
     });
   });
 
-   // Delete an users book by id **still needs work**
-  api.delete("/api/tags/:tag_id/", function(req, res) {
+   // Delete an users tag by id **still needs work**
+  api.delete("/api/tags/:tag_id", function(req, res) {
     console.log("**controller apiRoutes tag DELETE test**");
-    db.Example.destroy({ 
+    db.Book.destroy({ 
       where: { 
-        id: req.params.id,
         bookId: req.body.book_index 
       } 
     })
