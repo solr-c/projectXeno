@@ -11,7 +11,6 @@
 
     <!-- Normalize & Style CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
-
     <link rel="stylesheet" type="text/css" media="screen" href="styles/normalize.css" />
     <!-- <link rel="stylesheet" href="prototype.css"> -->
 
@@ -28,6 +27,7 @@
 
 <body>
 
+
 <nav class="uk-navbar-container" uk-navbar>
 
     <div id="navLeft" class="uk-navbar-left">
@@ -41,10 +41,10 @@
     <div id="navRight" class="uk-navbar-right">
 
         <ul class="uk-navbar-nav">
-            <li class="uk-active">Not a Member?</li>
+            <li class="uk-active">Have an account?</li>
             <li class="uk-active">
                 <!-- <button href="test-signup.html">Sign Up</button> -->
-                <a href="/signup"><button class="uk-button uk-button-default">Sign Up</button></a>
+                <a href="/signIn"><button class="uk-button uk-button-default">Log in</button></a>
             </li>
         </ul>
 
@@ -56,8 +56,30 @@
     <div id="signUpPage">
 
         <div id="signUp" class="uk-container">
-
+        
             <div id="registrationForm" class="uk-card uk-card-default uk-card-body uk">
+
+                <div class="uk-margin">
+                    <legend class="uk-legend">Username:</legend>
+                    <input id="regisUserName-input" class="uk-input" type="text">
+                </div>
+
+
+                <div class="uk-margin">
+                    <legend class="uk-legend">Password:</legend>
+                    <input id="regisPass-input" class="uk-input" type="password">
+                </div>
+
+
+                <div class="uk-margin">
+                    <legend class="uk-legend">First Name:</legend>
+                    <input id="regisFirstName-input" class="uk-input" type="password">
+                </div>
+
+                <div class="uk-margin">
+                    <legend class="uk-legend">Last Name:</legend>
+                    <input id="regisLastName-input" class="uk-input" type="password">
+                </div>
 
                 <div class="uk-margin">
                     <legend class="uk-legend">Email address:</legend>
@@ -66,11 +88,6 @@
 
                 </div>
 
-
-                <div class="uk-margin">
-                    <legend class="uk-legend">Password:</legend>
-                    <input id="regisPass-input" class="uk-input" type="password">
-                </div>
 
                 <div class="uk-margin">
                     <button id="submitBtn" class="uk-button uk-button-default" value="button">
@@ -82,16 +99,15 @@
     </div>
 
 
-    <a href="/apiPage"><button class="bg-lite">search page</button></a>
+    </div>
 
-    <!-- UIkit JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
+        <!-- UIkit JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/newindex.js"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
 
 
 </body>

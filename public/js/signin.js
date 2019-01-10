@@ -1,28 +1,20 @@
-$(document).on("click", "#submitBtn", function(){
+$(document).on('click', "#submitBtn", function() {
 
-    var Username = $("#regisUserName-input").val().trim();
-    var Userpass = $("#regisPass-input").val().trim();
-    var Firstname = $("#regisFirstName-input").val().trim();
-    var Lastname = $("#regisLastName-input").val().trim();
-    var Email = $("#regisEmail-input").val().trim();
+    Userpass = $("#regisPass-input").val().trim();
+    Email = $("#regisEmail-input").val().trim();
 
     $.ajax({
-        url: "api/user",
-        method: "POST",
+        url: "/api/user",
+        method: "GET",
         data: {
-            firstname: Firstname,
-            lastname: Lastname,
-            username: Username,
-            email: Email,
-            mybooks: [],
-            mytags: [],
-            password: Userpass 
+            password: Userpass,
+            email: Email
         }
-    })
-      .then(function(err, response){
-          if (err) throw err;
-          else
-          console.log(response);
-          console.log(data);
-      });
+        .then(function(err, res){
+           if (err) throw err;
+           
+           console.log(res);
+        })
+        
+    });
 });

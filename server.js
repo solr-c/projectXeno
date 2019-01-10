@@ -32,8 +32,9 @@ var PORT = process.env.PORT || 5000;
 
   //Routes
   require("./routes/auth")(app, passport);
-  require("./routes/htmlRoutes")(app);
   require("./routes/apiRoutes")(app);
+  require("./routes/htmlRoutes")(app);
+  
   
 
 
