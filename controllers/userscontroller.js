@@ -6,14 +6,14 @@ var router = express.Router();
 // Import the model (cat.js) to use its database functions.
 var userInfo = require("../models/index");
 
-router.get("/api/users", function(req, res) {
+router.get("/users", function(req, res) {
     userInfo.all(function(data){
     res.json(data);
   });
 
 });
 
-router.post("/api/user", function(req, res) {
+router.post("/user/post", function(req, res) {
     userInfo.create([
     "firstname", "lastname",
     "username", "email"
@@ -26,7 +26,7 @@ router.post("/api/user", function(req, res) {
   });
   });
 
-  router.put("/api/user/:id", function(req, res) {
+  router.put("/user/:id", function(req, res) {
     var condition = "id = " + req.params.id;
     console.log("**controller Put update profile test**");
     console.log("condition", condition);

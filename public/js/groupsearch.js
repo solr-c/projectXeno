@@ -120,8 +120,6 @@ $("#titleSearch").on("click", function() {
   });
 
 
-
-
   // takes in all users selected tags and puts them into query
   var tagList = ["money", "power"];
   console.log(tagList);

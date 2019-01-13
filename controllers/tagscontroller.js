@@ -3,26 +3,26 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
-var userInfo = require("../models/index");
+var db = require("../models");
 
-router.get("/api/tags", function(req, res) {
-  userInfo.all(function(data){
+router.get("/tags", function(req, res) {
+  db.Tag.findAll(function(data){
   res.json(data);
   console.log("**controller tag list test**");
 });
 
 });
 
-router.get("/api/user/:id/tags", function(req, res) {
-    userInfo.all(function(data){
+router.get("/user/:id/tags", function(req, res) {
+    db.Tag.findAll(function(data){
     res.json(data);
     console.log("**controller user tag list test**");
   });
   
 });
 
-router.post("/api/tags", function(req, res) {
-  userInfo.create([
+router.post("/tags", function(req, res) {
+  db.Tag.create([
   "tag_name"
 ], [
   req.body.tag_name
@@ -33,19 +33,19 @@ router.post("/api/tags", function(req, res) {
 });
 });
 
-router.post("/api/user/:id/tags", function(req, res) {
-    userInfo.create([
-    "tag_name"
-  ], [
-    req.body.tag_name
-  ], function(result) {
+router.post("/user/:id/tags", function(req, res) {
+    db.User.create({
+    mytags: res.body.tag_name
+    }).then( function(result) {
+      console.log(result);
     console.log("**controller user tag Post test**");
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
+    res.redirect("/");
   });
 });
 
-router.put("/api/tags/:tag_id", function(req, res) {
+router.put("/tags/:tag_id", function(req, res) {
   var condition = "tag_id = " + req.params.tag_id;
   console.log("**controller Put new tag into profile test**");
   console.log("condition", condition);
@@ -65,7 +65,7 @@ router.put("/api/tags/:tag_id", function(req, res) {
   });
 });
 
-router.delete("/api/tags/:tag_id", function(req, res) {
+router.delete("/tags/:tag_id", function(req, res) {
   var condition = "tag_id = " + req.params.tag_id;
   console.log("**controller tag Delete test**");
   userInfo.delete(condition, function(result) {
@@ -78,7 +78,7 @@ router.delete("/api/tags/:tag_id", function(req, res) {
   });
 });
 
-router.delete("/api/user/:id/tags/:tag_id", function(req, res) {
+router.delete("/user/:id/tags/:tag_id", function(req, res) {
   var condition = "tag_id = " + req.params.tag_id;
   console.log("**controller tag Delete test**");
   userInfo.delete(condition, function(result) {

@@ -2,9 +2,10 @@ module.exports = function(sequelize, DataTypes) {
     var Book = sequelize.define("Book", {
         
         book_index: {
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            type: DataTypes.INTEGER
+            allowNull: false
         },
     
         book_name: {
@@ -14,7 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     
         book_apiId: DataTypes.STRING,
 
-        // timestamps: false
+        UserId: DataTypes.STRING,
+
           
     }, {
         timestamps: false,
