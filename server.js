@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var passport = require("passport");
+var models = require("./models");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var env = require("dotenv").load();
